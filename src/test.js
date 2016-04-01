@@ -9,7 +9,8 @@ export default class PostTitle extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3>Title</h3>
+				<h6>Title</h6>
+				<p>aaa</p>
 			</div>
 		);
 	}

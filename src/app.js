@@ -12,7 +12,7 @@ class Post extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3>Title</h3>
+				<h1>Title</h1>
 				<PostTitle />
 			</div>
 		);

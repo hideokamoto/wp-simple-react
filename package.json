@@ -30,6 +30,5 @@
 	"start": "babel --presets react src --watch --out-dir build",
     "test": "jest"
   },
-  "author": "hideokamoto",
-  "license": "MIT"
+  "author": "hideokamoto"
 }

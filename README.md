@@ -8,8 +8,8 @@ Simple WordPress Template using React & WP REST API
 
 ##Getting Start
 ```
-$ git clone git@github.com:hideokamoto/wp-reactjs.git
-$ cd wp-reactjs
+$ git clone git@github.com:hideokamoto/wp-simple-react.git
+$ cd wp-simple-react
 $ npm install
 $ npm start
 ```
@@ -24,7 +24,7 @@ This code tested by [Jest](https://facebook.github.io/jest/docs/api.html#content
 
 ##How To Contribute
 ###If you find some bug
-Please make GitHub Issues. -> https://github.com/hideokamoto/wp-react-native/issues
+Please make GitHub Issues. -> https://github.com/hideokamoto/wp-simple-react/issues
 
 ###If you want to add some function
 1: Fork this repository

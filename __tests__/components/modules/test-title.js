@@ -28,6 +28,29 @@ describe('Title HTML Tag Check', () => {
 		}
 	}, supportedTags );
 
+});
 
+describe('Import Title Text', () => {
+	it('Not set API data & set childNode', () => {
+		var titleText = 'Title';
+		const title = TestUtils.renderIntoDocument(
+			<Title>{titleText}</Title>
+		);
+		const titleNode = ReactDOM.findDOMNode(title);
+		expect(titleNode.textContent).toEqual(titleText);
+	});
 
+	it('set API data', () => {
+		var titleText = 'Title';
+		var apiReturnMock = {
+			title: {
+				rendered: titleText
+			}
+		};
+		const title = TestUtils.renderIntoDocument(
+			<Title title={apiReturnMock.title} />
+		);
+		const titleNode = ReactDOM.findDOMNode(title);
+		expect(titleNode.textContent).toEqual(titleText);
+	});
 });

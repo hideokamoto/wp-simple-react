@@ -1,7 +1,7 @@
 {
-  "name": "react-wp-theme",
+  "name": "simple-wp-react",
   "version": "0.0.1",
-  "description": "WordPress Theme using React and WP REST API",
+  "description": "Simple WordPress Template using React & WP REST API",
   "main": "app.js",
   "dependencies": {
     "react": "^0.14.3",

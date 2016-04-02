@@ -27,7 +27,6 @@ describe('Title HTML Tag Check', () => {
 			});
 		}
 	}, supportedTags );
-
 });
 
 describe('Import Title Text', () => {
@@ -52,5 +51,23 @@ describe('Import Title Text', () => {
 		);
 		const titleNode = ReactDOM.findDOMNode(title);
 		expect(titleNode.textContent).toEqual(titleText);
+	});
+});
+
+describe('Title HTML ClassName Check', () => {
+	it('Set ClassName', () => {
+		var titleClass = 'sample';
+		const title = TestUtils.renderIntoDocument(
+			<Title className={titleClass}>Title</Title>
+		);
+		const titleNodes = TestUtils.scryRenderedDOMComponentsWithClass(title,titleClass);
+		expect(titleNodes[0]).not.toBeUndefined();
+	});
+	it('Default ClassName', () => {
+		const title = TestUtils.renderIntoDocument(
+			<Title>Title</Title>
+		);
+		const titleNodes = TestUtils.scryRenderedDOMComponentsWithClass(title,'entry-title');
+		expect(titleNodes[0]).not.toBeUndefined();
 	});
 });

@@ -16,13 +16,22 @@ export default class Title extends React.Component {
 		return titleText;
 	}
 
+	getClassName() {
+		if ( this.props.className ) {
+			return this.props.className;
+		} else {
+			return 'entry-title';
+		}
+	}
+
 	getTitleMarkNodes() {
 		var titleText = this.getTitleText();
+		var className = this.getClassName();
 		var titleNodes = '';
 		if ( ! this.props.markupTag ) {
-			titleNodes = <p>{titleText}</p>;
+			titleNodes = <p className={className} id={this.props.id}>{titleText}</p>;
 		} else {
-			titleNodes = <this.props.markupTag>{titleText}</this.props.markupTag>;
+			titleNodes = <this.props.markupTag className={className} id={this.props.id}>{titleText}</this.props.markupTag>;
 		}
 		return titleNodes;
 	}

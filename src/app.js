@@ -13,7 +13,7 @@ class Post extends React.Component {
 	render() {
 		return (
 			<div>
-				<Title markupTag='h1'>aaa</Title>
+				<Title markupTag='h1' id='2' className=''>aaa</Title>
 				<h1>Title</h1>
 				<PostTitle />
 			</div>

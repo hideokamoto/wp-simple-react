@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PostTitle from './test';
+import Title from './components/modules/title';
 
 class Post extends React.Component {
 
@@ -12,6 +13,7 @@ class Post extends React.Component {
 	render() {
 		return (
 			<div>
+				<Title markupTag='h1'/>
 				<h1>Title</h1>
 				<PostTitle />
 			</div>

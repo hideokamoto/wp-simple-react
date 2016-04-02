@@ -1,13 +1,11 @@
 path = require('path');
 const webpack = require('webpack');
 const babel = require('babel-loader');
-const glob = require('glob');
 
 module.exports = {
 	devtool: 'eval',
 	entry: {
-		app: './src/app.js',
-		test: glob.sync("./__tests__/**/tests*.js"),
+		app: './src/app.js'
 	},
 	output: {
 		path: path.join(__dirname, 'build'),
@@ -18,11 +16,6 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				exclude: /(node_modules)/,
-				loaders: ['babel']
-			},
-			{
-				test: /tests\.js$/,
 				exclude: /(node_modules)/,
 				loaders: ['babel']
 			},
@@ -44,13 +37,10 @@ module.exports = {
 	plugins: [
 		// hotモードに必要なプラグイン
 		new webpack.HotModuleReplacementPlugin(),
+		new webpack.DefinePlugin({
+		  "process.env": {
+		    NODE_ENV: JSON.stringify("production")
+		  }
+		})
 	],
 };
-
-/*
-new webpack.DefinePlugin({
-  "process.env": {
-    NODE_ENV: JSON.stringify("production")
-  }
-});
-*/

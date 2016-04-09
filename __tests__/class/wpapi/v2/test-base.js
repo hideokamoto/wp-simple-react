@@ -1,6 +1,6 @@
 'use strict';
-jest.unmock('../../../src/class/wpapi/v2');
-import V2wpapi from '../../../src/class/wpapi/v2';
+jest.unmock('../../../../src/class/wpapi/v2/base');
+import V2wpapi from '../../../../src/class/wpapi/v2/base.js';
 
 describe('Test for base class about WP API v2', () => {
 	var WP;

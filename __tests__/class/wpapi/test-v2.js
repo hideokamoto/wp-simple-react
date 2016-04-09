@@ -2,7 +2,7 @@
 jest.unmock('../../../src/class/wpapi/v2');
 import V2wpapi from '../../../src/class/wpapi/v2';
 
-describe('Content HTML Tag Check', () => {
+describe('Test for base class about WP API v2', () => {
 	var WP;
 	var api_url = 'http://api.wp-app.org/';
 	beforeEach( () => {
@@ -11,42 +11,17 @@ describe('Content HTML Tag Check', () => {
 
 	it( 'set root url', () => {
 		expect( WP.getUrl() ).toEqual( api_url );
-	})
-
-	it( "create spy object", () => {
-		var WPSpy = spyOn( WP, "getRootData")
 	});
 
-	it( "spy run", () => {
-		spyOn( WP, "getRootData").and.returnValue(true);
-		expect( WP.getRootData()).toEqual(true);
-	});
-
-	it( "spy run", () => {
-		spyOn( WP, "getRootData").and.callFake(function(url) {
+	it( "Should getRootData() return true.", () => {
+		spyOn( WP, "callApi").and.callFake(function(url) {
 		  return {
 		    data: 'hoge'
 		  }
 		});
-		expect( WP.getRootData()).toEqual({
-		  data: 'hoge'
-		});
+		expect( WP.getRootData()).toBeTruthy();
 	});
 
+	//@TODO:Test SetState from superagent
 
-	/*
-	it('should render Content component', () => {
-
-		it( "run", () => {
-			spyOn( WP, "getRootData").and.callThrough();
-			var test = WP.getRootData();
-				test.then( function(response) {
-					console.log(response);
-				})
-				.catch( function(error) {
-					console.dir(error);
-				});
-
-		});
-	});*/
 });

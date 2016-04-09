@@ -31,7 +31,7 @@ export default class V2wpapi {
 				}
 			}
 		}, query );
-		this.query = query_path;
+		this.query = query_path + '_embed';
 	}
 
 	setQuery( query ) {

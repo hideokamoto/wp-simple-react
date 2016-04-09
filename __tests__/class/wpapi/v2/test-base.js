@@ -28,7 +28,7 @@ describe('Test for base class about WP API v2', () => {
 			per_page: 1,
 		};
 		WP.setGetQuery( testQuery );
-		expect( WP.getQuery() ).toEqual( 'posts?per_page=1&' );
+		expect( WP.getQuery() ).toEqual( 'posts?per_page=1&_embed' );
 	});
 
 	it ( "Should add post query to api url", () => {

@@ -23,7 +23,7 @@ describe('Test for posts class about WP API v2', () => {
 			}
 		};
 		POST.setGetQuery( testQuery );
-		expect( POST.getQuery() ).toEqual( "posts?per_page=1&filter[category_name]=category&" );
+		expect( POST.getQuery() ).toEqual( "posts?per_page=1&filter[category_name]=category&_embed" );
 	});
 
 	//@TODO:Test SetState from superagent

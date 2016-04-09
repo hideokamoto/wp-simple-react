@@ -26,7 +26,7 @@ export default class PostList extends React.Component {
 	}
 
 	getPostList() {
-		var POST = new V2Posts( 'http://wp-kyoto.net/' );
+		var POST = new V2Posts( this.props.path );
 		POST.getPostList( this, this.props.query );
 	}
 
@@ -34,9 +34,9 @@ export default class PostList extends React.Component {
 		this.getPostList();
 	}
 
-	render() {
-		var i = 0;
+	createChildNodes() {
 		var listClassName = this.state.listClassName;
+		var i = 0;
 		var childNodes = this.state.data.map( function ( post ) {
 			var childNode = [];
 			Object.keys( this ).forEach( function( key ) {
@@ -59,6 +59,15 @@ export default class PostList extends React.Component {
 			i++;
 			return returnNode;
 		}, this.props.children );
+		return childNodes;
+	}
+
+	render() {
+		if ( this.props.path ) {
+			var childNodes = this.createChildNodes();
+		} else {
+			var childNodes = <p>Set Api url</p>;
+		}
 		return (
 			<div className={this.state.rowClassName}>
 				{childNodes}
@@ -67,5 +76,6 @@ export default class PostList extends React.Component {
 	}
 }
 PostList.getDefaultProps = {
-	query: {}
+	query: {},
+	path: false
 }

@@ -19,7 +19,7 @@ export default class Content extends React.Component {
 			}
 		}
 		return (
-			<article dangerouslySetInnerHTML={{__html: content}}></article>
+			<div dangerouslySetInnerHTML={{__html: content}}></div>
 		)
 	}
 }

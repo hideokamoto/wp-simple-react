@@ -7,17 +7,27 @@ export default class PostList extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			data: [],
-			className: 'post-list'
+			data: []
+		};
+		this.setDefaultClassname( props );
+	}
+
+	setDefaultClassname( props ) {
+		if ( props.rowClassName ) {
+			this.state.rowClassName = props.rowClassName;
+		} else {
+			this.state.rowClassName = 'post-list';
+		}
+		if ( props.listClassName ) {
+			this.state.listClassName = props.listClassName;
+		} else {
+			this.state.listClassName = 'entry-content';
 		}
 	}
 
 	getPostList() {
 		var POST = new V2Posts( 'http://wp-kyoto.net/' );
-		var query = {
-			per_page : 5
-		};
-		POST.getPostList( this, query );
+		POST.getPostList( this, this.props.query );
 	}
 
 	componentDidMount() {
@@ -26,6 +36,7 @@ export default class PostList extends React.Component {
 
 	render() {
 		var i = 0;
+		var listClassName = this.state.listClassName;
 		var childNodes = this.state.data.map( function ( post ) {
 			var childNode = [];
 			Object.keys( this ).forEach( function( key ) {
@@ -44,15 +55,17 @@ export default class PostList extends React.Component {
 					}
 				);
 			}, this );
-			var returnNode = <article key={i}>{childNode}</article>;
+			var returnNode = <article key={i} className={listClassName}>{childNode}</article>;
 			i++;
 			return returnNode;
 		}, this.props.children );
 		return (
-			<div className={this.state.className}>
+			<div className={this.state.rowClassName}>
 				{childNodes}
 			</div>
 		)
 	}
-
+}
+PostList.getDefaultProps = {
+	query: {}
 }

@@ -13,6 +13,10 @@ export default class V2wpapi {
 		return this._url;
 	}
 
+	getUrl() {
+		return this._url;
+	}
+
 	callApi( self ) {
 		var api_url = this._url + '/wp-json/wp/v2/';
 		request.get( api_url )

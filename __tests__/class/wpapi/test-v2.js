@@ -4,9 +4,14 @@ import V2wpapi from '../../../src/class/wpapi/v2';
 
 describe('Content HTML Tag Check', () => {
 	var WP;
+	var api_url = 'http://api.wp-app.org/';
 	beforeEach( () => {
-		WP = new V2wpapi('http://api.wp-app.org/');
+		WP = new V2wpapi( api_url );
 	});
+
+	it( 'set root url', () => {
+		expect( WP.getUrl() ).toEqual( api_url );
+	})
 
 	it( "create spy object", () => {
 		var WPSpy = spyOn( WP, "getRootData")
@@ -43,14 +48,5 @@ describe('Content HTML Tag Check', () => {
 				});
 
 		});
-/*
-spyOn(superagent, 'get').and.callFake(function(url) {
-  return {
-    end: function(cb) {
-      //null for no error, and object to mirror how a response would look.
-      cb(null, {body: data});
-    }
-  }
-});
 	});*/
 });

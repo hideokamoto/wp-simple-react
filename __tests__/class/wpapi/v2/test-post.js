@@ -14,5 +14,16 @@ describe('Test for posts class about WP API v2', () => {
 		expect( POST.getUrl() ).toEqual( api_url );
 	});
 
+	it ( "Should add get query with filter to api url", () => {
+		var testQuery = {
+			type: 'posts',
+			per_page: 1,
+			filter: {
+				category_name: 'category'
+			}
+		};
+		POST.setGetQuery( testQuery );
+		expect( POST.getQuery() ).toEqual( "posts?per_page=1&filter[category_name]=category&" );
+	});
 
 });

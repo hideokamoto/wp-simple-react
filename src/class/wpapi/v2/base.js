@@ -22,7 +22,13 @@ export default class V2wpapi {
 		var query_path = query.type + '?';
 		Object.keys( query ).forEach( function( key ) {
 			if ( 'type' != key ) {
-				query_path += key + "=" + query[key] + "&";
+				if ( typeof query[key] == 'object' ) {
+					Object.keys( query[key] ).forEach( function( filter ) {
+						query_path += key + '[' + filter + ']=' + this[filter] + "&";
+					}, query[key] );
+				} else {
+					query_path += key + "=" + query[key] + "&";
+				}
 			}
 		}, query );
 		this.query = query_path;

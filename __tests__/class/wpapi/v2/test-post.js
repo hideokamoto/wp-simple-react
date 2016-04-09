@@ -26,4 +26,6 @@ describe('Test for posts class about WP API v2', () => {
 		expect( POST.getQuery() ).toEqual( "posts?per_page=1&filter[category_name]=category&" );
 	});
 
+	//@TODO:Test SetState from superagent
+
 });

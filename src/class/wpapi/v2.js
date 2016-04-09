@@ -27,5 +27,6 @@ export default class V2wpapi {
 
 	getRootData( self ) {
 		this.callApi( self );
+		return true;
 	}
 }

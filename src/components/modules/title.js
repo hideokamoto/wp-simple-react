@@ -8,10 +8,12 @@ export default class Title extends React.Component {
 
 	getTitleText() {
 		var titleText = '';
-		if ( this.props.title ) {
-			titleText = this.props.title.rendered
-		} else if ( this.props.children ) {
-			titleText = this.props.children;
+		if ( this.props.children ) {
+			if ( this.props.children.title ) {
+				titleText = this.props.children.title.rendered;
+			} else {
+				titleText = this.props.children;
+			}
 		}
 		return titleText;
 	}

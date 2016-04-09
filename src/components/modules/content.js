@@ -6,10 +6,17 @@ export default class Content extends React.Component {
 	}
 
 	render() {
-		if ( this.props.data ) {
-			var content = this.props.data.rendered;
-		} else {
-			var content = 'Loading';
+		var content = 'Loading';
+		if ( this.props.children ) {
+			if ( this.props.children.content ) {
+				if ( this.props.children.content.rendered ) {
+					content = this.props.children.content.rendered;
+				} else {
+					content = this.props.children.content;
+				}
+			} else {
+				content = this.props.children;
+			}
 		}
 		return (
 			<article dangerouslySetInnerHTML={{__html: content}}></article>

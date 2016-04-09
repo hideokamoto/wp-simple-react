@@ -18,7 +18,7 @@ describe('Content HTML Tag Check', () => {
 				rendered: testHtml
 			}
 		};
-		var content = TestUtils.renderIntoDocument(<Content data={apiDataMock.content} />);
-		expect( content.props.data.rendered ).toBe(testHtml);
+		var content = TestUtils.renderIntoDocument(<Content children={apiDataMock} />);
+		expect( content.props.children.content.rendered ).toBe(testHtml);
 	})
 })

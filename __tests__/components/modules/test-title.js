@@ -47,7 +47,7 @@ describe('Import Title Text', () => {
 			}
 		};
 		const title = TestUtils.renderIntoDocument(
-			<Title title={apiReturnMock.title} />
+			<Title children={apiReturnMock} />
 		);
 		const titleNode = ReactDOM.findDOMNode(title);
 		expect(titleNode.textContent).toEqual(titleText);

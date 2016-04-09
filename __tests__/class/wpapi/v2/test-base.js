@@ -14,7 +14,7 @@ describe('Test for base class about WP API v2', () => {
 	});
 
 	it( "Should getRootData() return true.", () => {
-		spyOn( WP, "callApi").and.callFake(function(url) {
+		spyOn( WP, "get").and.callFake(function(url) {
 		  return {
 		    data: 'hoge'
 		  }
@@ -22,6 +22,27 @@ describe('Test for base class about WP API v2', () => {
 		expect( WP.getRootData()).toBeTruthy();
 	});
 
+	it ( "Should add get query to api url", () => {
+		var testQuery = {
+			type: 'posts',
+			per_page: 1,
+		};
+		WP.setGetQuery( testQuery );
+		expect( WP.getQuery() ).toEqual( 'posts?per_page=1&' );
+	});
+
+	it ( "Should add post query to api url", () => {
+		var testQuery = {
+			type: 'posts',
+			per_page: 1,
+		};
+
+		WP.setQuery( testQuery );
+		expect( WP.getQuery() ).toEqual( {
+			path: testQuery.type,
+			query: testQuery
+		} );
+	});
 	//@TODO:Test SetState from superagent
 
 });
